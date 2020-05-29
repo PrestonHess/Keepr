@@ -19,9 +19,9 @@ namespace Keepr.Services
             return _repo.Create(newVK);
         }
 
-        public string DeleteVK(int id)
+        public string DeleteVK(string userId, int id)
         {
-            if (_repo.DeleteVK(id))
+            if (_repo.DeleteVK(userId, id))
             {
                 return "VaultKeep Destroyed!";
             }

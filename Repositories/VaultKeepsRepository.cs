@@ -15,10 +15,10 @@ namespace Keepr.Repositories
             _db = db;
         }
 
-        internal bool DeleteVK(int id)
+        internal bool DeleteVK(string userId, int id)
         {
-            string sql = "DELETE FROM vaultkeeps WHERE id = @Id LIMIT 1";
-            int affectedRow = _db.Execute(sql, new { id });
+            string sql = "DELETE FROM vaultkeeps WHERE id = @Id AND userId = @UserId LIMIT 1";
+            int affectedRow = _db.Execute(sql, new { userId, id });
             return affectedRow == 1;
         }
 

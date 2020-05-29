@@ -44,7 +44,13 @@ namespace Keepr.Controllers
     {
       try
       {
-        return Ok(_vks.DeleteVK(id));
+        Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        if (user == null)
+        {
+          return "Not Logged.";
+        }
+        string userId = user.Value;
+        return Ok(_vks.DeleteVK(userId, id));
       }
       catch (System.Exception error)
       {
