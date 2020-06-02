@@ -30,19 +30,36 @@
               <div class="form-group row">
                 <label for class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                  <input v-model="newVault.Name" type="text" class="form-control" placeholder />
+                  <input
+                    v-model="newVault.Name"
+                    required
+                    type="text"
+                    class="form-control"
+                    placeholder
+                  />
                 </div>
               </div>
               <div class="form-group row">
                 <label for class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                  <input v-model="newVault.Description" type="text" class="form-control" placeholder />
+                  <input
+                    v-model="newVault.Description"
+                    required
+                    type="text"
+                    class="form-control"
+                    placeholder
+                  />
                 </div>
               </div>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" @click.prevent="createVault" data-dismiss="modal" class="btn btn-primary">Generate</button>
+            <button
+              type="button"
+              @click.prevent="createVault"
+              data-dismiss="modal"
+              class="btn btn-primary"
+            >Generate</button>
           </div>
         </div>
       </div>
@@ -53,19 +70,19 @@
 
 <script>
 export default {
-  name: 'vaultform',
-  data(){
+  name: "vaultform",
+  data() {
     return {
       newVault: {}
-    }
+    };
   },
-  computed:{},
-  methods:{
+  computed: {},
+  methods: {
     createVault() {
       this.$store.dispatch("createVault", this.newVault);
       this.newVault = {};
     }
   },
-  components:{}
-}
+  components: {}
+};
 </script>

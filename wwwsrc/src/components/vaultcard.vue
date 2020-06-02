@@ -1,10 +1,10 @@
 <template>
   <div class="vaultcard">
-    <div class="card my-2" @click.prevent="getVaultKeeps">
+    <div class="card bg-info shadow my-2">
       <button type="button" @click.prevent="deleteVault" class="close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <div class="card-body text-center">{{vaultData.name}}</div>
+      <div class="card-body text-center text-capitalize" @click.prevent="getVaultKeeps">{{vaultData.name}}</div>
     </div>
   </div>
 </template>

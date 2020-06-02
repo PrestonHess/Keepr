@@ -36,7 +36,6 @@ export default {
     },
     removeVaultKeep() {
       this.$store.dispatch("removeVaultKeep", this.keepData.vaultKeepId);
-
     }
   },
   components:{}

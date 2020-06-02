@@ -17,6 +17,7 @@
                 <li>Keeps: {{this.activeKeep.keeps}}</li>
               </ul>
               <button
+                v-if="$auth.isAuthenticated"
                 @click="deleteKeep"
                 class="btn btn-sm btn-secondary"
               >Delete</button>

@@ -154,6 +154,7 @@ export default new Vuex.Store({
     async removeVaultKeep({ dispatch, commit }, vkId) {
       try {
         await api.delete(`vaultkeeps/${vkId}`);
+        dispatch("getKeepsByUser");
       } catch (error) {
         console.error(error);
       }

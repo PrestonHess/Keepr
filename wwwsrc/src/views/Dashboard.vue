@@ -4,15 +4,25 @@
       <div class="row">
         <div class="col-12 text-center">
           <h1>WELCOME TO THE DASHBOARD</h1>
+          <button type="button" @click="getUserKeeps" class="btn btn-sm btn-secondary">Show Published</button>
+        </div>
+      </div>
+      <div class="p-2 row justify-content-center">
+        <div class="col-2 text-center">
           <keepform></keepform>
+        </div>
+        <div class="col-2 text-center">
           <vaultform></vaultform>
         </div>
-        <div class="col-2">
-          <vaultcard v-for="vault in vaults" :vaultData="vault" :key="vault.id"></vaultcard>
-        </div>
-        <div class="col-10">
-          <div class="card-columns">
-            <vkcard v-for="keep in vaultKeeps" :keepData="keep" :key="keep.Id"></vkcard>
+        <div class="row p-2">
+          <div class="col-2">
+            <h5>Vaults:</h5>
+            <vaultcard v-for="vault in vaults" :vaultData="vault" :key="vault.id"></vaultcard>
+          </div>
+          <div class="col-10">
+            <div class="card-columns">
+              <vkcard v-for="keep in vaultKeeps" :keepData="keep" :key="keep.Id"></vkcard>
+            </div>
           </div>
         </div>
       </div>
@@ -36,6 +46,11 @@ export default {
     },
     vaultKeeps() {
       return this.$store.state.vaultKeeps;
+    }
+  },
+  methods: {
+    getUserKeeps() {
+      this.$store.dispatch("getKeepsByUser");
     }
   },
   components: {
