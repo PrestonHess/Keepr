@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar my-navbar navbar-expand-lg navbar-light bg-white">
     <router-link class="navbar-brand" :to="{ name: 'home' }">Keepr</router-link>
     <button
       class="navbar-toggler"
@@ -25,7 +25,7 @@
           :class="{ active: $route.name == 'dashboard' }"
         >
           <router-link class="nav-link" :to="{ name: 'dashboard' }"
-            >My-Dashboard</router-link
+            >Dashboard</router-link
           >
         </li>
       </ul>
@@ -67,4 +67,24 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.my-navbar{
+  box-shadow: 0px 10px 30px
+    rgba(216, 216, 216, 0.45);
+}
+.nav-link{
+  border-bottom: 4px solid white;
+  margin-right: 24px;
+  transition: 0.3s ease;
+  padding: 5px;
+}
+.nav-link:hover {
+  color: black;
+  border-bottom: 4px solid #eb4027;
+}
+.router-link-exact-active{
+  color: black !important;
+  font-weight: 600;
+  border-bottom: 4px solid #eb4027;
+}
+</style>
